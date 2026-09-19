@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { readonly } from '@angular/forms/signals';
 
 @Component({
   imports: [ReactiveFormsModule,FormsModule,CommonModule],
@@ -12,17 +11,39 @@ import { readonly } from '@angular/forms/signals';
   styleUrl: './login.css',
   templateUrl: './login.html',
 })
-export class Login {}
+export class Login {
+    formulario:FormGroup;
+    private readonly http:HttpClient;
 
-  formulario:FormGroup;
-  private readonly HttpClient;
+    constructor(private fb:FormBuilder, http:HttpClient){
+      this.formulario = this.fb.group(
+        {
+          correo:['',[Validators.required,Validators.email]],
+          contrasena:['',Validators.required]
+        }
 
-  constructor(private fb:FormBuilder, HttpClient){
-    this.formulario = this.fb.group(
-      {
-        correo:['',[Validators.required, Validators.correo]],
-        
+      );
+      this.http = http;
+    }
+
+    login(){
+      if(this.formulario.valid){
+        this.http.post("http://localhost:8080/usuario/login",
+          this.formulario.value).subscribe(
+            retorno => this.validar(retorno)
+          )
       }
+      else{
+        alert("Complete la información");
+      }
+    }
 
-    )
-  }
+    validar(usuario:any){
+      if(usuario?.idUsuario){
+        location.href = "/bienvenida";
+      }
+      else{
+        alert("Usuario o password invalido");
+      }
+    }
+}
