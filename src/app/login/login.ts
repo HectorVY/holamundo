@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { RouterOutlet } from '@angular/router'; 
 
 @Component({
-  imports: [ReactiveFormsModule,FormsModule,CommonModule],
+  imports: [ReactiveFormsModule,FormsModule,CommonModule, RouterOutlet ],
   selector: 'app-login',
   styleUrl: './login.css',
   templateUrl: './login.html',
