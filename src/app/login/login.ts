@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { RouterOutlet } from '@angular/router'; 
 
 @Component({
-  imports: [ReactiveFormsModule,FormsModule,CommonModule, RouterOutlet ],
+  imports: [ReactiveFormsModule,FormsModule,CommonModule ],
   selector: 'app-login',
   styleUrl: './login.css',
   templateUrl: './login.html',
