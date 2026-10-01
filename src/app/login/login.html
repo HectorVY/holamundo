@@ -1,20 +1,20 @@
 <p></p>
 <form [formGroup]="formulario" (ngSubmit)="login()">
-    <label>Correo:</label>
-    <input type="correo" formControlName="correo">
+    <label class="text-uppercase" >Correo:</label>
+    <input type="correo" formControlName="correo" class="form-control">
     @if(formulario.get('correo')?.invalid 
     && formulario.get('correo')?.touched){
         <div> El correo es obligatorio</div>
     }
     <br><br>
-     <label>Contrasena:</label>
-    <input type="contrasena" formControlName="contrasena">
+     <label class="text-uppercase">Contrasena:</label>
+    <input type="contrasena" formControlName="contrasena" class="form-control">
     @if(formulario.get('contrasena')?.invalid 
     && formulario.get('contrasena')?.touched){
         <div> El contrasena es obligatorio</div>
     }
 
     <br><br>
-    <button type = "submit" class="btn btn-primary">Ingresar</button>
+    <button type = "submit" class="btn btn-primary" >Ingresar</button>
 
 </form>
