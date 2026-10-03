@@ -1,33 +1,34 @@
-<h2>Cree un usuario nuevo:</h2>
+<h2 class="text-center">Cree un usuario nuevo:</h2>
 <form [formGroup]="formulario" (ngSubmit)="guardarUsuario()">
      <label>Nombres:</label>
-    <input type="text" formControlName="nombres">
+    <input type="text" formControlName="nombres" class="form-control">
     @if(formulario.get('nombres')?.invalid 
     && formulario.get('nombres')?.touched){
         <div> El nombre es obligatorio</div>
     }
     <br><br>
     <label>Correo:</label>
-    <input type="correo" formControlName="correo">
+    <input type="correo" formControlName="correo" class="form-control">
     @if(formulario.get('correo')?.invalid 
     && formulario.get('correo')?.touched){
         <div> El correo es obligatorio</div>
     }
     <br><br>
      <label>Contrasena:</label>
-    <input type="contrasena" formControlName="contrasena">
+    <input type="contrasena" formControlName="contrasena" class="form-control">
     @if(formulario.get('contrasena')?.invalid 
     && formulario.get('contrasena')?.touched){
         <div> El contrasena es obligatorio</div>
     }
 
     <br><br>
-    <button type = "submit">Ingresar</button>
+    <button type = "submit" class="btn btn-outline-secondary">Ingresar</button>
+    <br><br>
 
 </form>
 
-<h2>Usuarios creados:</h2>
-<table>
+<h2 class="text-center">Usuarios creados:</h2>
+<table class="text-center" >
     <thead>
         <th>Id</th>
         <th>Nombre</th>
