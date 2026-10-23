@@ -1,0 +1,115 @@
+  <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"  >CINE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav gap-5">
+            <li class="nav-item">
+              <a class="nav-link active"  aria-current="page" href="http://localhost:4200/usuario" class="text-primary" class="text-decoration-none">Usuario  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:4200/anuncio" class="text-primary" class="text-decoration-none" >Anuncio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:4200/clasificacion" class="text-primary" class="text-decoration-none">Clasificacion </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:4200/genero" class="text-primary" class="text-decoration-none">Genero </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:4200/sala" class="text-primary" class="text-decoration-none">Sala </a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="http://localhost:4200/pelicula" class="text-primary" class="text-decoration-none">Pelicula </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:4200/funcion" class="text-primary" class="text-decoration-none">Funcion </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:4200/" class="text-primary" class="text-decoration-none">Log Out </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </nav>
+
+<h2 class="text-center">Cree una funcion nueva</h2>
+<form [formGroup]="formulario" (ngSubmit)="guardarFuncion()">
+     <label>Ingrese la fecha:</label>
+    <input type="date" formControlName="fecha" class="form-control">
+    @if(formulario.get('fecha')?.invalid 
+    && formulario.get('fecha')?.touched){
+        <div> La fecha es obligatoria</div>
+    }
+    <br><br>
+    <label>Ingrese la hora</label>
+    <input type="time" formControlName="hora" class="form-control">
+    @if(formulario.get('hora')?.invalid 
+    && formulario.get('hora')?.touched){
+        <div> La hora es obligatoria</div>
+    }
+        <br><br>
+     <label>Precio de la entrada:</label>
+    <input type="number" formControlName="precioEntrada" class="form-control">
+    @if(formulario.get('precioEntrada')?.invalid 
+    && formulario.get('precioEntrada')?.touched){
+        <div> El precio es obligatorio</div>
+    }
+
+     <div class="mb-3">
+        <label class="form-label">Seleccione la Película:</label>
+        <select formControlName="idPelicula" class="form-select">
+            <option [value]="null" disabled selected>Menu Desplegable </option>
+            @for(pelicula of peliculas; track pelicula.idPelicula){
+                <option [value]="pelicula.idPelicula">{{ pelicula.titulo }}</option>
+            }
+        </select>
+        @if(formulario.get('idPelicula')?.invalid && formulario.get('idPelicula')?.touched){
+            <div class="text-danger small mt-1">La pelicula es obligatoria</div>
+        }
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Seleccione la Sala:</label>
+        <select formControlName="idSala" class="form-select">
+            <option [value]="null" disabled selected>Menu desplegable</option>
+            @for(sala of salas; track sala.idSala){
+                <option [value]="sala.idSala">{{ sala.nombre }}</option>
+            }
+        </select>
+        @if(formulario.get('idSala')?.invalid && formulario.get('idSala')?.touched){
+            <div class="text-danger small mt-1">La sala es obligatoria</div>
+        }
+    </div>
+    <br><br>
+    <button type = "submit" class="btn btn-outline-secondary">Ingresar</button>
+    <br><br>
+</form>
+<h2 class="text-center">Funciones Creadas:</h2>
+<table class="text-center" >
+    <thead>
+        <th>Id</th>
+        <th>Fecha</th>
+        <th>Hora</th>        
+        <th>Precio</th>
+        <th>idPelicula</th>        
+        <th>idSala</th>
+
+    </thead>
+    <tbody>
+        @for(funcion of funciones; track funcion.idFuncion){
+        <tr>
+            <td>{{funcion.idFuncion}}</td>
+            <td>{{funcion.fecha | date}}</td>
+            <td>{{funcion.hora}}</td>
+            <td>{{funcion.precioEntrada}}</td>
+            <td>{{funcion.idPelicula}}</td>
+            <td>{{funcion.idSala}}</td>           
+        </tr>
+        }
+    </tbody>
+</table>

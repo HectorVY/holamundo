@@ -6,6 +6,8 @@ import { Clasificacion } from './clasificacion/clasificacion';
 import { Genero } from './genero/genero';
 import { Sala } from './sala/sala';
 import { Usuario } from './usuario/usuario';
+import { Funcion } from './funcion/funcion';
+import { Pelicula } from './pelicula/pelicula';
 
 
 export const routes: Routes = [
@@ -16,5 +18,7 @@ export const routes: Routes = [
     {path:"genero", component: Genero},
     {path:"sala", component: Sala},
     {path:"usuario", component: Usuario},
+    {path:"pelicula", component: Pelicula},
+    {path:"funcion", component: Funcion},
 
 ]; 
