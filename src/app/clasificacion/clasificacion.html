@@ -53,6 +53,7 @@
     <thead>
         <th>Id</th>
         <th>Nombre</th>
+        <th>ELIMINAR</th>
 
     </thead>
     <tbody>
@@ -60,7 +61,9 @@
         <tr>
             <td>{{clasificacion.idClasificacion}}</td>
             <td>{{clasificacion.nombre}}</td>
-           
+            <td>  
+                <button type="button" class="btn btn-outline-secondary" (click)="eliminarClasificacion(clasificacion.idClasificacion)">Eliminar</button>
+            </td>
 
         </tr>
         }

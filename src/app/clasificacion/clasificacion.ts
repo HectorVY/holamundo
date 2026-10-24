@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './clasificacion.css',
   templateUrl: './clasificacion.html',
 })
-export class Clasificacion {
+export class Clasificacion implements OnInit {
   formulario:FormGroup;
   private readonly http:HttpClient;
 
@@ -61,5 +61,11 @@ export class Clasificacion {
           alert("Error al crear usuario, existe un problema en el servidor.")
         }
       }
+
+      eliminarClasificacion(idClasificacion: number) {
+        this.http.delete("http://localhost:8080/clasificacion/eliminar/" + idClasificacion).subscribe(
+          () => this.buscarClasificacion()
+      );
+    }
 
 }

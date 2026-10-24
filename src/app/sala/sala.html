@@ -70,6 +70,7 @@
         <th>Nombre</th>
         <th>Asientos</th>        
         <th>AsientosPorFila</th>
+        <th>ELIMINAR</th>
 
     </thead>
     <tbody>
@@ -79,7 +80,9 @@
             <td>{{sala.nombre}}</td>
             <td>{{sala.filas}}</td>
             <td>{{sala.asientosPorFila}}</td>            
-
+            <td>  
+                <button type="button" class="btn btn-outline-secondary" (click)="eliminarSala(sala.idSala)">Eliminar</button>
+            </td>
         </tr>
         }
     </tbody>

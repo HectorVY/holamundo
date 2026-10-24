@@ -62,5 +62,10 @@ export class Sala implements OnInit {
           alert("Error al crear usuario, existe un problema en el servidor.")
         }
       }
+      eliminarSala(idSala: number) {
+        this.http.delete("http://localhost:8080/sala/eliminar/" + idSala).subscribe(
+          () => this.buscarSalas()
+      );
+    }
 
 }

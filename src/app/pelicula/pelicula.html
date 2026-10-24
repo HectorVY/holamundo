@@ -71,6 +71,7 @@
         <th>Titulo</th>
         <th>Sinopsis</th>        
         <th>Duracion Minutos</th>
+        <th>ELIMINAR</th>
 
     </thead>
     <tbody>
@@ -80,7 +81,9 @@
             <td>{{pelicula.titulo}}</td>
             <td>{{pelicula.sinopsis}}</td>
             <td>{{pelicula.duracionMinutos}}</td>            
-
+            <td>  
+                <button type="button" class="btn btn-outline-secondary" (click)="eliminarPelicula(pelicula.idPelicula)">Eliminar</button>
+            </td>
         </tr>
         }
     </tbody>

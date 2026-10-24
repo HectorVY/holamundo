@@ -62,6 +62,11 @@ export class Pelicula implements OnInit {
           alert("Error al crear usuario, existe un problema en el servidor.")
         }
       }
+      eliminarPelicula(idPelicula: number) {
+        this.http.delete("http://localhost:8080/pelicula/eliminar/" + idPelicula).subscribe(
+          () => this.buscarPeliculas()
+      );
+    }
 
 }
 

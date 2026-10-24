@@ -64,5 +64,10 @@ export class Genero implements OnInit {
           alert("Error al crear usuario, existe un problema en el servidor.")
         }
       }
+      eliminarGenero(idGenero: number) {
+        this.http.delete("http://localhost:8080/genero/eliminar/" + idGenero).subscribe(
+          () => this.buscarGenero()
+      );
+    }
 }
 

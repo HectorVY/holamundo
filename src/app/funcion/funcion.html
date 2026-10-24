@@ -98,6 +98,7 @@
         <th>Precio</th>
         <th>idPelicula</th>        
         <th>idSala</th>
+        <th>ELIMINAR</th>
 
     </thead>
     <tbody>
@@ -108,7 +109,10 @@
             <td>{{funcion.hora}}</td>
             <td>{{funcion.precioEntrada}}</td>
             <td>{{funcion.idPelicula}}</td>
-            <td>{{funcion.idSala}}</td>           
+            <td>{{funcion.idSala}}</td> 
+            <td>  
+                <button type="button" class="btn btn-outline-secondary" (click)="eliminarFuncion(funcion.idFuncion)">Eliminar</button>
+            </td>          
         </tr>
         }
     </tbody>

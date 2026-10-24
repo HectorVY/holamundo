@@ -56,12 +56,16 @@
     <thead>
         <th>Id</th>
         <th>Nombre</th>
+        <th>ELIMINAR</th>
     </thead>
     <tbody>
         @for(genero of generos; track genero.idGenero){
         <tr>
             <td>{{genero.idGenero}}</td>
             <td>{{genero.nombre}}</td>
+            <td>  
+                <button type="button" class="btn btn-outline-secondary" (click)="eliminarGenero(genero.idGenero)">Eliminar</button>
+            </td>
         </tr>
         }
     </tbody>

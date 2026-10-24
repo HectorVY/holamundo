@@ -83,5 +83,10 @@ export class Funcion implements OnInit {
           alert("Error al crear usuario, existe un problema en el servidor.")
         }
       }
+      eliminarFuncion(idFuncion: number) {
+        this.http.delete("http://localhost:8080/funcion/eliminar/" + idFuncion).subscribe(
+          () => this.buscarFuncion()
+      );
+    }
 
 }
