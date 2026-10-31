@@ -76,6 +76,13 @@
   accept="image/*"
   (change)="seleccionarImagen($event)"
 >
+<br><br>
+<label>Ingrese el tipo:</label>
+<br>
+<textarea
+  [(ngModel)]="anuncio.tipo"
+  name="tipo">
+</textarea>
 
 <br><br>
 
@@ -110,7 +117,12 @@
   <h3>{{ anuncio.titulo }}</h3>
 
   <p>
+    <strong>Descripcion:</strong>
     {{ anuncio.descripcion }}
+  </p>
+      <p>
+        <strong>Tipo:</strong>
+    {{ anuncio.tipo }}
   </p>
 
   <img
@@ -124,6 +136,8 @@
     {{ anuncio.fechaPublicacion | date:'dd/MM/yyyy' }}
   </p>
 
+
   <hr>
+
 
 </div>

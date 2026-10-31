@@ -21,7 +21,8 @@ export class Anuncio implements OnInit {
     titulo: '',
     descripcion: '',
     fechaPublicacion: '',
-    imagen: ''
+    imagen: '',
+    tipo: ''
   };
 
   constructor(private anuncioService: AnuncioService) {}

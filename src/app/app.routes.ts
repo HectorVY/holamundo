@@ -8,6 +8,7 @@ import { Sala } from './sala/sala';
 import { Usuario } from './usuario/usuario';
 import { Funcion } from './funcion/funcion';
 import { Pelicula } from './pelicula/pelicula';
+import { Asiento } from './asiento/asiento';
 
 
 export const routes: Routes = [
@@ -20,5 +21,6 @@ export const routes: Routes = [
     {path:"usuario", component: Usuario},
     {path:"pelicula", component: Pelicula},
     {path:"funcion", component: Funcion},
+    {path:"asiento", component: Asiento},
 
 ]; 

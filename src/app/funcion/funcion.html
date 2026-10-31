@@ -108,8 +108,8 @@
             <td>{{funcion.fecha | date}}</td>
             <td>{{funcion.hora}}</td>
             <td>{{funcion.precioEntrada}}</td>
-            <td>{{funcion.idPelicula}}</td>
-            <td>{{funcion.idSala}}</td> 
+            <td>{{funcion.idPelicula | pelicula: peliculas}}</td>
+            <td>{{funcion.idSala | sala: salas}}</td> 
             <td>  
                 <button type="button" class="btn btn-outline-secondary" (click)="eliminarFuncion(funcion.idFuncion)">Eliminar</button>
             </td>          
